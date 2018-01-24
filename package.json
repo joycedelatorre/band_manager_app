@@ -1,0 +1,24 @@
+{
+  "name": "band_manager_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Twcapra/band_manager_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Twcapra/band_manager_app/issues"
+  },
+  "homepage": "https://github.com/Twcapra/band_manager_app#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

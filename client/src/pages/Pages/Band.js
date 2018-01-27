@@ -4,7 +4,7 @@ import Jumbotron  from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
 
-import API from "../../../../controllers/bandsController";
+import API from "../../utils/API";
 
 const sectionStyle ={
   width: "100%",
@@ -20,14 +20,10 @@ class BandInfo extends Component {
     band: {}
   };
 
-  // componentDidMount() {
-  //   API.getBand(this.props.match.params.id)
-  //     .then(res => this.setState({ band: res.data }))
-  //     .catch(err => console.log(err));
-  // }
-
+  // need to write getBand function in ../../utils/API
+  // this function should use an Ajax route to call the bandController
   componentDidMount() {
-    API.findById(this.props.match.params.id)
+    API.getBand(this.props.match.params.id)
       .then(res => this.setState({ band: res.data }))
       .catch(err => console.log(err));
   }

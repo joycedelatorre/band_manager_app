@@ -2,7 +2,7 @@
   "name": "band_manager_app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "server": "node server.js",
     "client": "node scripts/start-client.js",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Twcapra/band_manager_app#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "node-spotify-api": "^1.0.7"
   }
 }

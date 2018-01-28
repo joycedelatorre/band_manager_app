@@ -3,7 +3,6 @@ import Background from "../../components/Background/image/image.jpg";
 import Jumbotron  from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../components/Form";
-
 const sectionStyle ={
 	width: "100%",
 	height:"100%",

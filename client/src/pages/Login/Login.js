@@ -3,6 +3,7 @@ import Background from "../../components/Background/image/image.jpg";
 import Jumbotron  from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../components/Form";
+import { Nav } from "../../components/Nav";
 
 const sectionStyle ={
 	width: "100%",
@@ -22,8 +23,10 @@ class Login extends Component{
 	render(){
 		return (
 			<section style={ sectionStyle }>
+			<Nav></Nav>
 			<Container fluid >
 			<Row style={{fontSize:50, color:"black"}}><h1>Band Manager</h1>
+			
 				<Jumbotron>
 					<Row>
 						<form>

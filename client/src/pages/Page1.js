@@ -3,6 +3,7 @@ import Background from "../components/Background/image/image.jpg";
 import Jumbotron  from "../components/Jumbotron";
 import { Row, Container } from "../components/Grid";
 // import { Col, Row, Container } from "../components/Grid";
+import API from "../utils/API";
 
 const sectionStyle ={
 	width: "100%",
@@ -14,12 +15,22 @@ const sectionStyle ={
 }
 
 class Page1 extends Component{
-	state ={
-		username:"",
-		password:""
+	state = {
+		message: ""
 	};
 
-	render(){
+	componentDidMount() {
+		this.getMessage();
+	}
+
+	getMessage = () => {
+		API.getMsg()
+			.then(res => this.setState({ message: res.data }))
+			.catch(err => console.log(err));
+	};
+
+
+	render() {
 		return (
 			<section style={ sectionStyle }>
 				<Container fluid >
@@ -28,6 +39,7 @@ class Page1 extends Component{
 							<Row>
 								<h3>Page 1</h3>
 								<p>Stuff & etcetera</p>
+								<p>{ this.state.message }</p>
 							</Row>
 						</Jumbotron>
 					</Row>

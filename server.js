@@ -1,5 +1,5 @@
 const express = require("express");
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const routes = require("./routes");
 
 const passport = require("passport");
@@ -11,7 +11,25 @@ const db = require("./models/sequelize.js");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const path = require("path");
+// const path = require("path");
+
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.text());
+// app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+
+// -- trying to figure out proxy issue . . .
+// Configure body parser for AJAX requests
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+// Serve up static assets
+app.use(express.static("../client/src/pages/_Vince_Http_Public"));
+// Add routes, both API and view
+app.use(routes);
+// -----------
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect(
@@ -23,7 +41,6 @@ mongoose.connect(
 );
 
 // killed the `force: true` option 
-
 db.sequelize.sync({});
 // db.sequelize.sync({ force: true }).then(function() {
 //   app.listen(PORT, function() {
@@ -31,13 +48,6 @@ db.sequelize.sync({});
 //   });
 // });
 
-
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.text());
-// app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-app.use(routes);
 
 // app.use(session(
 // 	{
@@ -66,6 +76,9 @@ app.use(session(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+// require("./routes/htmlRoutes.js")(passport, app);
+// require("./routes/api-routes.js")(app);
 
 app.listen(PORT,function(){
 	console.log(`🌎 ==> Server now port ${PORT}`);

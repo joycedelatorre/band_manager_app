@@ -6,6 +6,8 @@ import { Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 // import { Input, TextArea, FormBtn } from "../components/Form";
 
+import API from "../utils/API";
+
 const sectionStyle ={
 	width: "100%",
 	height:"100%",
@@ -16,9 +18,37 @@ const sectionStyle ={
 }
 
 class Login extends Component{
-	state ={
-		username:"",
-		password:""
+	
+	state = {
+		username: "",
+		password: "",
+		message: "",
+		success: false
+	};
+
+	handleInputChange = event => {
+		const { name, value } = event.target;
+		this.setState({
+			[name]: value
+		});
+	};
+
+	handleFormSubmit = event => {
+		event.preventDefault();
+		if (this.state.username && this.state.password) {
+			API.login({
+				username: this.state.username,
+				password: this.state.password
+			})
+				.then(res => this.handleLoginResult())
+				.catch(err => console.log(err));
+		}
+	};
+
+	handleLoginResult = res => {
+		console.log("handleLoginResult", res.message);
+		this.setState({ message: res.message });
+		this.setState({ success: res.success });
 	};
 
 	render(){
@@ -30,17 +60,30 @@ class Login extends Component{
 					<Row>
 						<form>
 							<h3>Login</h3>
-							<Input placeholder="Username"/>
-							<Input placeholder="Password"/>
+							<Input
+								value={this.state.username}
+								onChange={this.handleInputChange}
+								name="username"
+								placeholder="Username"
+							/>
+							<Input
+								value={this.state.password}
+								onChange={this.handleInputChange}
+								name="password"
+								placeholder="Password"
+							/>
 							<FormBtn
-                disabled={!(this.state.author && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit
-              </FormBtn>
+								disabled={!(this.state.username && this.state.password)}
+								onClick={this.handleFormSubmit}
+              				>
+                				Submit
+              				</FormBtn>
 						</form>
 					</Row>
-					{/*<section style={ sectionStyle }>hello</section>*/}
+					<Row>
+						<h4>{ this.state.message }</h4>
+						<h5>Logged in: { this.state.success.toString() }</h5>
+					</Row>
 
 				</Jumbotron>
 				</Row>

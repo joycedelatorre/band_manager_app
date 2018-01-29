@@ -20,6 +20,8 @@ const App = () =>
           <Route exact path="/page2" component={Page2} />
           <Route exact path="/page3" component={Page3} />
           <Route exact path="/band/:id" component={Band} />
+
+          <Route exact path="/login2" />
         </Switch>
       </Wrapper>
       <Footer />

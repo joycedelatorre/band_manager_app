@@ -1,20 +1,12 @@
-// import React, { Component } from 'react';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-import logo from './logo.svg';
-// import axios from 'axios';
 import './App.css';
 
 import Navbar from './components/Navbar';
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 
-import Login from './pages/Login';
-import Page1 from './pages/Pages/Page1';
-import Page2 from './pages/Pages/Page2';
-import Page3 from './pages/Pages/Page3';
-import Band from './pages/Pages/Band';
+import { Band, Login, Page1, Page2, Page3 } from './pages';
 
 const App = () =>
   <Router>

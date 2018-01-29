@@ -19,20 +19,18 @@
   },
   "homepage": "https://github.com/Twcapra/band_manager_app#readme",
   "dependencies": {
-    "axios": "^0.17.1",
-    "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "express-session": "^1.15.6",
+    "fs": "0.0.1-security",
     "jsonwebtoken": "^8.1.1",
     "mongoose": "^5.0.2",
     "mysql2": "^1.5.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "prop-types": "^15.6.0",
-    "sequelize": "^4.32.2",
-    "validator": "^9.3.0"
+    "path": "^0.12.7",
+    "react-scripts": "^1.1.0",
+    "sequelize": "^4.32.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

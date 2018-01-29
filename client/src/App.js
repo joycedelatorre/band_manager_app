@@ -1,31 +1,128 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import './App.css';
+import React, { Component } from 'react';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import Navbar from './components/Navbar';
-import Footer from "./components/Footer";
-import Wrapper from "./components/Wrapper";
+import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from 'react-router-dom';
+import './App.css'; // test this . . . change some values in App.css to see if it's being implemented in the page render
 
-import { Band, Login, Page1, Page2, Page3 } from './pages';
+// import { Login, Page1, Page2, Page3 } from './pages';
 
-const App = () =>
-  <Router>
-    <div>
-      <Navbar />
-      <Wrapper>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/page1" component={Page1} />
-          <Route exact path="/page2" component={Page2} />
-          <Route exact path="/page3" component={Page3} />
-          <Route exact path="/band/:id" component={Band} />
+import Wrapper from './components/Wrapper';
+import Footer from './components/Footer';
 
-          <Route exact path="/login2" />
-        </Switch>
-      </Wrapper>
-      <Footer />
-    </div>
-  </Router>;
+// import Base from './components/Base.jsx';
+import HomePage from './components/HomePage.jsx';
+
+import LoginPage from './containers/LoginPage.jsx';
+import LogoutFunction from './containers/LogoutFunction.jsx';
+import SignUpPage from './containers/SignUpPage.jsx';
+import DashboardPage from './containers/DashboardPage.jsx';
+
+import Auth from './utils/Auth';
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    Auth.isUserAuthenticated() ? (
+      <Component {...props} {...rest} />
+    ) : (
+      <Redirect to={{
+        pathname: '/',
+        state: { from: props.location }
+      }}/>
+    )
+  )}/>
+)
+
+const LoggedOutRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    Auth.isUserAuthenticated() ? (
+      <Redirect to={{
+        pathname: '/',
+        state: { from: props.location }
+      }}/>
+    ) : (
+      <Component {...props} {...rest} />
+    )
+  )}/>
+)
+
+const PropsRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    <Component {...props} {...rest} />
+  )}/>
+)
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      authenticated: false
+    }
+  };
+
+  componentDidMount() {
+    // check if user is logged in on refresh
+    this.toggleAuthenticateStatus()
+  }
+
+  toggleAuthenticateStatus() {
+    // check authenticated status and toggle state based on that
+    this.setState({ authenticated: Auth.isUserAuthenticated() })
+  }
+
+  render() {
+    return (
+      <div>
+        <Router>
+          <div>
+
+            <nav className="navbar navbar-default">
+              <div className="container-fluid">
+                <div className="navbar-header">
+                  <Link className="navbar-brand" to="/">
+                    Band Manager
+                  </Link>
+                </div>
+                <ul className="nav navbar-nav">
+                  {this.state.authenticated ? (
+                    <div>
+                      <li className={window.location.pathname === "/dashboard" ? "active": ""}>
+                        <Link to="/dashboard">Dashboard</Link>
+                      </li>
+                      <li className={window.location.pathname === "/logout" ? "active" : ""}>
+                        <Link to="/logout">Log out</Link>
+                      </li>
+                    </div>
+                  ) : (
+                    <div>
+                      <li className={window.location.pathname === "/login" ? "active": ""}>
+                        <Link to="/login">Log in</Link>
+                      </li>
+                      <li className={window.location.pathname === "/signup" ? "active" : ""}>
+                        <Link to="/signup">Sign up</Link>
+                      </li>
+                    </div>
+                  )}
+                </ul>
+              </div>
+            </nav>
+
+            <Wrapper>
+              <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
+              <PrivateRoute path="/dashboard" component={DashboardPage}/>
+              <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
+              <LoggedOutRoute path="/signup" component={SignUpPage} />
+              <Route path="/logout" component={LogoutFunction} />
+              {/*remember to use react-router-dom <Switch> . . . </Switch> to navigate exclusively to another Class*/}
+            </Wrapper>
+
+            <Footer />
+
+          </div>
+        </Router>
+      </div>
+    );
+  }
+}
 
 export default App;

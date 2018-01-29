@@ -84,27 +84,25 @@ class App extends Component {
                     Band Manager
                   </Link>
                 </div>
-                <ul className="nav navbar-nav">
-                  {this.state.authenticated ? (
-                    <div>
-                      <li className={window.location.pathname === "/dashboard" ? "active": ""}>
-                        <Link to="/dashboard">Dashboard</Link>
-                      </li>
-                      <li className={window.location.pathname === "/logout" ? "active" : ""}>
-                        <Link to="/logout">Log out</Link>
-                      </li>
-                    </div>
-                  ) : (
-                    <div>
-                      <li className={window.location.pathname === "/login" ? "active": ""}>
-                        <Link to="/login">Log in</Link>
-                      </li>
-                      <li className={window.location.pathname === "/signup" ? "active" : ""}>
-                        <Link to="/signup">Sign up</Link>
-                      </li>
-                    </div>
-                  )}
-                </ul>
+                {this.state.authenticated ? (
+                  <ul className="nav navbar-nav">
+                    <li className={window.location.pathname === "/dashboard" ? "active": ""}>
+                      <Link to="/dashboard">Dashboard</Link>
+                    </li>
+                    <li className={window.location.pathname === "/logout" ? "active" : ""}>
+                      <Link to="/logout">Log out</Link>
+                    </li>
+                  </ul>
+                ) : (
+                  <ul className="nav navbar-nav">
+                    <li className={window.location.pathname === "/login" ? "active": ""}>
+                      <Link to="/login">Log in</Link>
+                    </li>
+                    <li className={window.location.pathname === "/signup" ? "active" : ""}>
+                      <Link to="/signup">Sign up</Link>
+                    </li>
+                  </ul>
+                )}
               </div>
             </nav>
 

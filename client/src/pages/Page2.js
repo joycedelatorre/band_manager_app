@@ -4,6 +4,8 @@ import Jumbotron  from "../components/Jumbotron";
 import { Row, Container } from "../components/Grid";
 // import { Col, Row, Container } from "../components/Grid";
 
+
+// Page2 displays How To Section
 const sectionStyle ={
 	width: "100%",
 	height:"100%",
@@ -26,8 +28,12 @@ class Page2 extends Component{
 					<Row style={{fontSize:50, color:"black"}}><h1>Band Manager</h1>
 						<Jumbotron>
 							<Row>
-								<h3>Page 2</h3>
-								<p>Stuff & etcetera</p>
+								<h3>How To</h3>
+								<p>1) Create an Account <br /> <br />
+								   2) Input Youtube Account Information <br /> <br />
+								   3) Locate Fans <br /> <br />
+								   4) Create Help Wanted/Seeking Band <br /> <br />
+								</p>
 							</Row>
 						</Jumbotron>
 					</Row>

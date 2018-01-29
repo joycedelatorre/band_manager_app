@@ -22,7 +22,7 @@ const SignUpForm = ({
         <input
           placeholder="Username"
           name="username"
-          errorText={errors.username}
+          // errorText={errors.username}
           onChange={onChange}
           value={user.username}
         />
@@ -34,13 +34,13 @@ const SignUpForm = ({
           type="password"
           name="password"
           onChange={onChange}
-          errorText={errors.password}
+          // errorText={errors.password}
           value={user.password}
         />
       </div>
 
       <div className="button-line">
-        <button type="submit" primary>Create New Account</button>
+        <button type="submit" primary="true">Create New Account</button>
       </div>
 
       <p>Already have an account? <Link to={'/login'}>Log in</Link></p>

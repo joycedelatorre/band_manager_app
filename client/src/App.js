@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import './App.css'; // test this . . . change some values in App.css to see if it's being implemented in the page render
 
 // import { Login, Page1, Page2, Page3 } from './pages';

@@ -24,7 +24,7 @@ const LoginForm = ({
         <input
           placeholder="Username"
           name="username"
-          errorText={errors.username}
+          // errorText={errors.username}
           onChange={onChange}
           value={user.username}
         />
@@ -36,13 +36,15 @@ const LoginForm = ({
           type="password"
           name="password"
           onChange={onChange}
-          errorText={errors.password}
+          // errorText={errors.password}
           value={user.password}
+          // https://www.chromium.org/developers/design-documents/create-amazing-password-forms
+          // autocomplete="current-password"
         />
       </div>
 
       <div className="button-line">
-        <button type="submit" primary>Sign in</button>
+        <button type="submit" primary="true">Sign in</button>
       </div>
 
       <p>Don't have an account? <Link to={'/signup'}>Create one</Link>.</p>

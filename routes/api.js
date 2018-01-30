@@ -29,4 +29,8 @@ router.get('/test', (req, res) => {
 	);
 });
 
+router.get('/helpwanted', (req, res)=>{
+	res.status(200).json({req})
+})
+
 module.exports = router;

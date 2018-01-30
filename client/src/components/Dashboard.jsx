@@ -6,7 +6,7 @@ const Dashboard = ({ secretData, user }) => (
   <Wrapper>
     <h1>Dashboard</h1>
     <h3>You should get access to this page only after authentication.</h3>
-  	{secretData && <div style={{ fontSize: '16px', color: 'green' }}>Welcome <strong>{user.name}</strong>!<br />{secretData}</div>}
+  	{secretData && <div style={{ fontSize: '16px', color: 'green' }}>Welcome <strong>{user.username}</strong>!<br />{secretData}</div>}
   </Wrapper>
 );
 

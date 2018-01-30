@@ -22,7 +22,8 @@ const sectionStyle = {
   width: "100%",
   height: "100%",
   backgroundImage: "url(" + Background + ")",
-  backgroundRepeat: "no-repeat center center fixed",
+  // backgroundRepeat: "no-repeat center center fixed",
+  backgroundAttachment: "fixed",
   backgroundSize: "cover",
   position: "absolute"
 }

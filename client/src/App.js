@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 // import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+
 import './App.css'; // test this . . . change some values in App.css to see if it's being implemented in the page render
 
 import Navbar from './components/Navbar';

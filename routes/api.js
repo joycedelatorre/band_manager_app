@@ -23,7 +23,7 @@ router.get('/test', (req, res) => {
 	  },
 	  {
 	    arg1: "ok i'll make sure.",
-	    arg2: "i asked again, they to stop asking."
+	    arg2: "i asked again, they say to stop asking."
 	  }
   	]
   );

@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import './App.css'; // test this . . . change some values in App.css to see if it's being implemented in the page render
 
-// import { Login, Page1, Page2, Page3 } from './pages';
-
-import Wrapper from './components/Wrapper';
+import Background from "./components/Background/image/image.jpg";
 import Footer from './components/Footer';
 
-// import Base from './components/Base.jsx';
 import HomePage from './components/HomePage.jsx';
 
 import LoginPage from './containers/LoginPage.jsx';
@@ -19,7 +14,18 @@ import LogoutFunction from './containers/LogoutFunction.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 
+import TestPage from './containers/TestPage.jsx';
+
 import Auth from './utils/Auth';
+
+const sectionStyle = {
+  width: "100%",
+  height: "100%",
+  backgroundImage: "url(" + Background + ")",
+  backgroundRepeat: "no-repeat center center fixed",
+  backgroundSize: "cover",
+  position: "absolute"
+}
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
@@ -75,7 +81,7 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <div>
+          <section style={ sectionStyle }>
 
             <nav className="navbar navbar-default">
               <div className="container-fluid">
@@ -88,6 +94,9 @@ class App extends Component {
                   <ul className="nav navbar-nav">
                     <li className={window.location.pathname === "/dashboard" ? "active": ""}>
                       <Link to="/dashboard">Dashboard</Link>
+                    </li>
+                    <li className={window.location.pathname === "/test" ? "active": ""}>
+                      <Link to="/test">Test</Link>
                     </li>
                     <li className={window.location.pathname === "/logout" ? "active" : ""}>
                       <Link to="/logout">Log out</Link>
@@ -106,18 +115,21 @@ class App extends Component {
               </div>
             </nav>
 
-            <Wrapper>
+            <section>
               <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
-              <PrivateRoute path="/dashboard" component={DashboardPage}/>
               <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
               <LoggedOutRoute path="/signup" component={SignUpPage} />
               <Route path="/logout" component={LogoutFunction} />
+
+              <PrivateRoute path="/dashboard" component={DashboardPage} />
+              <PrivateRoute path="/test" component={TestPage} />
+
               {/*remember to use react-router-dom <Switch> . . . </Switch> to navigate exclusively to another Class*/}
-            </Wrapper>
+            </section>
 
             <Footer />
 
-          </div>
+          </section>
         </Router>
       </div>
     );

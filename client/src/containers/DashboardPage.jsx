@@ -29,6 +29,17 @@ class DashboardPage extends React.Component {
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
+        
+        // console.log(xhr.response.user);
+          // here's the output . . .
+          // {
+          //   _id: "5a6f9367a79ba51bd4bf79e0",
+          //   username: "matt",
+          //   password: "$2a$10$AYX/BOkOai.DjKq5Fq9VWedjBpzjMX9IpRUAyGcX7pFdeMjspqw8u",
+          //   __v: 0
+          // }
+        //
+        
         this.setState({
           secretData: xhr.response.message,
           user: xhr.response.user

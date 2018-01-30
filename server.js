@@ -27,7 +27,7 @@ app.get("/api/spotify/band/:name", function(req, res){
 
 			//console.log("Artist: "+JSON.stringify(data.tracks.items[0].album.artists[0].name));
 			
-			// res.json(JSON.stringify(data.tracks.items[0].album.artists[0].name));
+		 // res.json(JSON.stringify(data.tracks.items[0].album.artists[0].name));
 	});
 	// res.send(spotifyThisBand(name));
 });

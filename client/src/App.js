@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './pages/Login';
-import User from './pages/User';
+import User from './pages/User/User.js';
 
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="App">
       {/*<Login />*/}
-      <User />
+       <User />
        {/*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1 className="App-title" >React</h1>

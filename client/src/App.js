@@ -19,10 +19,12 @@ import TestPage from './containers/TestPage.jsx';
 import Auth from './utils/Auth';
 
 const sectionStyle = {
-  width: "100%",
-  height: "100%",
+  top: 0,
+  right: 0,
+  left: 0,
+  bottom: 0,
   backgroundImage: "url(" + Background + ")",
-  // backgroundRepeat: "no-repeat center center fixed",
+  backgroundRepeat: "no-repeat center center fixed",
   backgroundAttachment: "fixed",
   backgroundSize: "cover",
   position: "absolute"
@@ -80,10 +82,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      
         <Router>
-          <section style={ sectionStyle }>
-
+          <div style={ sectionStyle }>
             <nav className="navbar navbar-default">
               <div className="container-fluid">
                 <div className="navbar-header">
@@ -129,10 +130,8 @@ class App extends Component {
             </section>
 
             <Footer />
-
-          </section>
+          </div>
         </Router>
-      </div>
     );
   }
 }

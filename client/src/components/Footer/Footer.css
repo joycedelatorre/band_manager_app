@@ -1,6 +1,5 @@
 .footer {
-  min-height: 100px;
-  background: #E5E5E5;
+  background: #FFFFFF;
   position: fixed;
 }
 
@@ -10,5 +9,5 @@
   left: 0;
   right: 0;
   padding: 3px;
-  background: #D5D5D5;
+  background: #5D694F;
 }

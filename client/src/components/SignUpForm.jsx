@@ -11,14 +11,16 @@ const SignUpForm = ({
   errors,
   user,
 }) => (
-  <Container fluid >
-    <Row style={{fontSize:18, color:"black"}}>
+  <Container fluid>
+    <Row>
       <Jumbotron>
         <Row>
           <form action="/" onSubmit={onSubmit}>
             <h2>Sign Up</h2>
 
-            {errors.summary && <h4>{errors.summary}</h4>}
+            <div style={{ minHeight: 30 }}>
+              {errors.summary && <h5>{errors.summary}</h5>}
+            </div>
 
             <Input
               placeholder="Username"
@@ -43,7 +45,7 @@ const SignUpForm = ({
               Create New Account
             </FormBtn>
 
-            <p>Already have an account? <Link to={'/login'}>Log in</Link></p>
+            <p>Already have an account?<br /><Link to={'/login'}>Log in</Link></p>
 
           </form>
         </Row>

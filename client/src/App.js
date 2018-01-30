@@ -85,7 +85,7 @@ class App extends Component {
       
         <Router>
           <div style={ sectionStyle }>
-            <nav className="navbar navbar-default">
+            <nav className="navbar navbar-inverse">
               <div className="container-fluid">
                 <div className="navbar-header">
                   <Link className="navbar-brand" to="/">

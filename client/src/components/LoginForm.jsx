@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Jumbotron  from "./Jumbotron";
-import { Row, Col, Container } from "./Grid";
+import { Row, Container } from "./Grid";
 import { Input, FormBtn } from "./Form";
 
 const LoginForm = ({

@@ -4,6 +4,8 @@ import Jumbotron  from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import { Nav } from "../../components/Nav";
+import { Animetest } from "../../components/Animetest";
+
 
 const sectionStyle ={
 	width: "100%",
@@ -24,8 +26,10 @@ class Login extends Component{
 		return (
 			<section style={ sectionStyle }>
 			<Nav></Nav>
+			
 			<Container fluid >
-			<Row style={{fontSize:50, color:"black"}}><h1>Band Manager</h1>
+			<Row style={{fontSize:50, color:"black"}}>
+			<Animetest></Animetest>
 			
 				<Jumbotron>
 					<Row>

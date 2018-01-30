@@ -1,0 +1,20 @@
+html,
+body {
+  /*background-color: #b56498;*/
+}
+
+footer {
+  /*padding-top: 2em;*/
+}
+
+.st1 {
+  fill: none;
+  stroke: #00BAFF;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+svg {
+  transform: translateX(-56px);
+}

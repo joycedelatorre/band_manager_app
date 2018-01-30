@@ -6,12 +6,6 @@ export const Nav = () =>
     <div className="container-fluid">
       <div className="navbar-header">
 
-        <div id="cssSelector">
-          <div className="line">
-            <div className="square el">Test</div>
-          </div>
-        </div>
-
 
         <button type="button" className="collapsed navbar-toggle">
           <span className="sr-only">Toggle navigation</span>

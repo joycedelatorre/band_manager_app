@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import './App.css'; // test this . . . change some values in App.css to see if it's being implemented in the page render
 
+import Navbar from './components/Navbar';
 import Background from "./components/Background/image/image.jpg";
 import Footer from './components/Footer';
 
@@ -85,37 +86,27 @@ class App extends Component {
       
         <Router>
           <div style={ sectionStyle }>
-            <nav className="navbar navbar-inverse">
-              <div className="container-fluid">
-                <div className="navbar-header">
-                  <Link className="navbar-brand" to="/">
-                    Band Manager
-                  </Link>
-                </div>
-                {this.state.authenticated ? (
-                  <ul className="nav navbar-nav">
-                    <li className={window.location.pathname === "/dashboard" ? "active": ""}>
-                      <Link to="/dashboard">Dashboard</Link>
-                    </li>
-                    <li className={window.location.pathname === "/test" ? "active": ""}>
-                      <Link to="/test">Test</Link>
-                    </li>
-                    <li className={window.location.pathname === "/logout" ? "active" : ""}>
-                      <Link to="/logout">Log out</Link>
-                    </li>
-                  </ul>
-                ) : (
-                  <ul className="nav navbar-nav">
-                    <li className={window.location.pathname === "/login" ? "active": ""}>
-                      <Link to="/login">Log in</Link>
-                    </li>
-                    <li className={window.location.pathname === "/signup" ? "active" : ""}>
-                      <Link to="/signup">Sign up</Link>
-                    </li>
-                  </ul>
-                )}
-              </div>
-            </nav>
+
+            {
+              this.state.authenticated ? (
+                // Navbar for logged in user
+                <Navbar>
+                  {[
+                    {path: "/dashboard", name: "Dashboard"},
+                    {path: "/test", name: "Test"},
+                    {path: "/logout", name: "Log out"}
+                  ]}
+                </Navbar>
+              ) : (
+                // Navbar for no login
+                <Navbar>
+                  {[
+                    {path: "/login", name: "Log in"},
+                    {path: "/signup", name: "Sign up"}
+                  ]}
+                </Navbar>
+              )
+            }
 
             <section>
               <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
@@ -130,6 +121,7 @@ class App extends Component {
             </section>
 
             <Footer />
+
           </div>
         </Router>
     );

@@ -3,7 +3,9 @@ import Anime from 'react-anime';
 import "./Animetest.css";
  
 export const Animetest =() => (
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg"  width="100%" height="150" x="0" y="0" viewBox=" 0 0 850 200">
+  <div>
+<h1 className="st1">test</h1>
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg"  width="100%" height="150" x="0" y="0" viewBox=" 0 0 608 200">
      <Anime easing="easeOutQuad"
            duration={5000}
            loop={false}
@@ -19,7 +21,8 @@ export const Animetest =() => (
                 
                 
                 
-                <path className="st1" d="M200,42 C200,42 400,42 800,42 L800,159 L200,159 C200,81 200,42 200,42 Z" id="Path-2"/>
+                <path className="st1" d="M200,42 C200,42 400,42 800,42 L800,159 L200,159 C200,81 200,42 200,42 Z"/>
+                <path className="st1" d="M-36.5,70.5 L1259.5,83.5"/>
                 
                 <path className="st1" d="M200,47.3632812 C215.273438,47.3632812 237.061198,65.2486979 265.363281,101.019531 C263.300781,172.980469 268.914062,177.526042 282.203125,114.65625 C295.492188,51.7864583 321.213542,31.2252604 359.367188,52.9726562 C332.476562,151.89974 338.753906,176.63151 378.199219,127.167969 C437.367188,52.9726562 506.128906,60.6992187 498.273438,114.65625 C493.036458,150.627604 536.510417,148.227865 628.695312,107.457031 L768.15625,42"/>
                 <path className="st1" d="M426,448v-64"/>
@@ -32,7 +35,10 @@ export const Animetest =() => (
                 
       </Anime>
     </svg>
+    </div>
     );
+
+
 
 
 

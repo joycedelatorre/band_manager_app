@@ -9,7 +9,7 @@ require('./models/mongoose').connect(mongooseConfig.dbUri);
 const app = express();
 
 // Tell the app to look for static files in these directories
-app.use(express.static('./server/static/'));
+// app.use(express.static('./server/static/'));
 // app.use(express.static('./client/dist/'));
 
 // Configure body parser for AJAX requests

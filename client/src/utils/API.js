@@ -1,14 +1,16 @@
 import axios from "axios";
 
 export default {
-
+  getBand: function(name){
+    return axios.get("/api/spotify/band/" + name, {withCredentials:true});
+  },
   // bands routes
   getBands: function() {
     return axios.get("/api/bands");
   },
-  getBand: function(id) {
-    return axios.get("/api/bands/" + id);
-  },
+  // getBand: function(id) {
+  //   return axios.get("/api/bands/" + id);
+  // },
   deleteBand: function(id) {
     return axios.delete("/api/bands/" + id);
   },

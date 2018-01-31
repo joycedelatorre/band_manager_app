@@ -12,7 +12,7 @@ const HelpWanted = ({
   description,
   contact,
   location,
-  message
+  response
 }) => (
 	<Container fluid>
     <Row>
@@ -55,13 +55,13 @@ const HelpWanted = ({
             </FormBtn>
 
             {
-              message &&
+              response &&
                 <div>
-                  <h4>{message.response}</h4>
-                  <h6>{message.artist}</h6>
-                  <h6>{message.description}</h6>
-                  <h6>{message.contact}</h6>
-                  <h6>{message.location}</h6>
+                  <h4>{response.response}</h4>
+                  <h6>{response.artist}</h6>
+                  <h6>{response.description}</h6>
+                  <h6>{response.contact}</h6>
+                  <h6>{response.location}</h6>
                 </div>
             }
 
@@ -81,7 +81,7 @@ HelpWanted.propTypes = {
   description: PropTypes.string.isRequired,
   contact: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  message: PropTypes.object.isRequired
+  response: PropTypes.object.isRequired
 };
 
 export default HelpWanted;

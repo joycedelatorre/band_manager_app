@@ -13,7 +13,7 @@ class  HelpWantedPage extends React.Component {
       description: '',
       contact: '',
       location: '',
-      message: {}
+      response: {}
     };
 
     this.postForm = this.postForm.bind(this);
@@ -48,7 +48,7 @@ class  HelpWantedPage extends React.Component {
           description: '',
           contact: '',
           location: '',
-          message: xhr.response
+          response: xhr.response
         });
       }
     });
@@ -73,7 +73,7 @@ class  HelpWantedPage extends React.Component {
         description={this.state.description}
         contact={this.state.contact}
         location={this.state.location}
-        message={this.state.message}
+        response={this.state.response}
       />
     );
   }

@@ -1,43 +1,87 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Auth from '../utils/Auth';
 import HelpWanted from '../components/HelpWanted.jsx';
 
-
 class  HelpWantedPage extends React.Component {
 
+  constructor(props, context) {
+    super(props, context);
+  
+    this.state = {
+      artist: '',
+      description: '',
+      contact: '',
+      location: '',
+      message: {}
+    };
 
-  state = {
-    args: []
+    this.postForm = this.postForm.bind(this);
+    this.changeInput = this.changeInput.bind(this);
   }
 
-  componentDidMount() {
+  postForm(event) {
+    
+    event.preventDefault();
+
+    const artist = encodeURIComponent(this.state.artist);
+    const description = encodeURIComponent(this.state.description);
+    const contact = encodeURIComponent(this.state.contact);
+    const location = encodeURIComponent(this.state.location);
+
+    const formData = 
+      `artist=${artist}&description=${description}&contact=${contact}&location=${location}`;
+    
     const xhr = new XMLHttpRequest();
-    xhr.open('get', '/api/helpwanted');
+    xhr.open('post', '/api/helpwanted');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
-        let args = [];
-        for (let i = 0; i < xhr.response.length; i++) {
-          args.push(xhr.response[i]);
-        }
         this.setState({
-          args: args
+          // artist: xhr.response.artist,
+          // description: xhr.response.description,
+          // contact: xhr.response.contact,
+          // location: xhr.response.location,
+          artist: '',
+          description: '',
+          contact: '',
+          location: '',
+          message: xhr.response
         });
       }
     });
-    xhr.send();
+    xhr.send(formData);
+  }
+
+  changeInput(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value
+    });
   }
 
   render() {
+
     return (
-      this.state.args
-        ? <HelpWanted>{this.state.args}</HelpWanted>
-        : <div>Nothing to show</div>
-      );
+      <HelpWanted
+        onSubmit={this.postForm}
+        onChange={this.changeInput}
+        artist={this.state.artist}
+        description={this.state.description}
+        contact={this.state.contact}
+        location={this.state.location}
+        message={this.state.message}
+      />
+    );
   }
 
 }
+
+HelpWantedPage.contextTypes = {
+  router: PropTypes.object.isRequired
+};
 
 export default HelpWantedPage;

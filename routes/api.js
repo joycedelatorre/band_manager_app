@@ -29,8 +29,14 @@ router.get('/test', (req, res) => {
 	);
 });
 
-router.get('/helpwanted', (req, res)=>{
-	res.status(200).json({req})
-})
+router.post('/helpwanted', (req, res)=> {
+	res.status(200).json({
+		response: "Posted!",
+		artist: req.body.artist + " - ok!",
+		description: req.body.description + " - ok!",
+		contact: req.body.contact + " - ok!",
+		location: req.body.location + " - ok!"
+	});
+});
 
 module.exports = router;

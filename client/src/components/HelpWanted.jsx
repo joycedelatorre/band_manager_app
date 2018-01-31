@@ -7,49 +7,68 @@ import { Input, FormBtn } from "./Form";
 
 const HelpWanted = ({
 	onSubmit,
-	onChange,
-	errors
+  onChange,
+  artist,
+  description,
+  contact,
+  location,
+  message
 }) => (
 	<Container fluid>
     <Row>
       <Jumbotron>
         <Row>
-		<h1>Help Wanted</h1>
+          <form action ='/HelpWanted' onSubmit={onSubmit}>
+            <h2>Help Wanted</h2>
 
-		<form action ='/HelpWanted' onSubmit={onSubmit}>
-		<Input
+            <Input
               placeholder="Artist"
               name="artist"
               // errorText={errors.artist}
               onChange={onChange}
-              value={this.artist}
+              value={artist}
             />
-        <Input
+            <Input
               placeholder="Description"
               name="description"
               // errorText={errors.description}
               onChange={onChange}
-              value={this.description}
+              value={description}
             />
-        <Input
+            <Input
               placeholder="Contact Information"
               name="contact"
               // errorText={errors.contact}
               onChange={onChange}
-              value={this.contact}
+              value={contact}
             />
-        <Input
+            <Input
               placeholder="Location"
               name="location"
               // errorText={errors.location}
               onChange={onChange}
-              value={this.location}
+              value={location}
             />
-		<FormBtn primary ="true">
-		Create New Listing
-		</FormBtn>
-    </form>
-	</Row>
+
+            <FormBtn primary="true">
+              Create New Listing
+            </FormBtn>
+
+            {
+              message &&
+                <div>
+                  <h4>{message.response}</h4>
+                  <h6>{message.artist}</h6>
+                  <h6>{message.description}</h6>
+                  <h6>{message.contact}</h6>
+                  <h6>{message.location}</h6>
+                </div>
+            }
+
+            <p><Link to={'/'}>Return home</Link></p>
+
+          </form>
+	      </Row>
       </Jumbotron>
     </Row>
   </Container>
@@ -58,7 +77,11 @@ const HelpWanted = ({
 HelpWanted.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired
+  artist: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  contact: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  message: PropTypes.object.isRequired
 };
 
 export default HelpWanted;

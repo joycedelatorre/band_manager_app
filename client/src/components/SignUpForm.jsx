@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import { Card, CardText } from 'material-ui/Card';
-// import RaisedButton from 'material-ui/RaisedButton';
-// import TextField from 'material-ui/TextField';
-
+import Jumbotron  from "./Jumbotron";
+import { Row, Container } from "./Grid";
+import { Input, FormBtn } from "./Form";
 
 const SignUpForm = ({
   onSubmit,
@@ -12,40 +11,47 @@ const SignUpForm = ({
   errors,
   user,
 }) => (
-  <div className="container">
-    <form action="/" onSubmit={onSubmit}>
-      <h2>Sign Up</h2>
+  <Container fluid>
+    <Row>
+      <Jumbotron>
+        <Row>
+          <form action="/" onSubmit={onSubmit}>
+            <h2>Sign Up</h2>
 
-      {errors.summary && <p className="error-message">{errors.summary}</p>}
+            <div style={{ minHeight: 30 }}>
+              {errors.summary && <h5>{errors.summary}</h5>}
+            </div>
 
-      <div className="field-line">
-        <input
-          placeholder="Username"
-          name="username"
-          // errorText={errors.username}
-          onChange={onChange}
-          value={user.username}
-        />
-      </div>
+            <Input
+              placeholder="Username"
+              name="username"
+              // errorText={errors.username}
+              onChange={onChange}
+              value={user.username}
+            />
 
-      <div className="field-line">
-        <input
-          placeholder="Password"
-          type="password"
-          name="password"
-          onChange={onChange}
-          // errorText={errors.password}
-          value={user.password}
-        />
-      </div>
+            <Input
+              placeholder="Password"
+              type="password"
+              name="password"
+              onChange={onChange}
+              // errorText={errors.password}
+              value={user.password}
+              // https://www.chromium.org/developers/design-documents/create-amazing-password-forms
+              // autocomplete="current-password"
+            />
 
-      <div className="button-line">
-        <button type="submit" primary="true">Create New Account</button>
-      </div>
+            <FormBtn primary="true">
+              Create New Account
+            </FormBtn>
 
-      <p>Already have an account? <Link to={'/login'}>Log in</Link></p>
-    </form>
-  </div>
+            <p>Already have an account?<br /><Link to={'/login'}>Log in</Link></p>
+
+          </form>
+        </Row>
+      </Jumbotron>
+    </Row>
+  </Container>
 );
 
 SignUpForm.propTypes = {

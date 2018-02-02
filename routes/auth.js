@@ -11,7 +11,7 @@ const router = new express.Router();
  * @returns {object} The result of validation. Object contains a boolean validation result,
  *                   errors tips, and a global message for the whole form.
  */
-function validateSignupForm(payload) {
+function validateSignup(payload) {
   const errors = {};
   let isFormValid = true;
   let message = '';
@@ -44,7 +44,7 @@ function validateSignupForm(payload) {
  * @returns {object} The result of validation. Object contains a boolean validation result,
  *                   errors tips, and a global message for the whole form.
  */
-function validateLoginForm(payload) {
+function validateLogin(payload) {
   const errors = {};
   let isFormValid = true;
   let message = '';
@@ -71,7 +71,7 @@ function validateLoginForm(payload) {
 }
 
 router.post('/signup', (req, res, next) => {
-  const validationResult = validateSignupForm(req.body);
+  const validationResult = validateSignup(req.body);
   if (!validationResult.success) {
     return res.status(400).json({
       success: false,
@@ -109,7 +109,7 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.post('/login', (req, res, next) => {
-  const validationResult = validateLoginForm(req.body);
+  const validationResult = validateLogin(req.body);
   if (!validationResult.success) {
     return res.status(400).json({
       success: false,

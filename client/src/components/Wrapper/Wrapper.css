@@ -2,5 +2,13 @@
   /* min-height: 100%; */
   margin: 60px;
   padding: 30px 30px 60px 30px;
-  background-color: #ffffff;
+ background: linear-gradient(to left, rgba(0,162,255,.3) 50%, rgba(255,255,234,0.7) 50%);
+ background-size: 200% 100%;
+ background-position:right bottom;
+ transition:all 5s ease;
+
+}
+
+.wrapper:hover{
+	background-position: left bottom;
 }

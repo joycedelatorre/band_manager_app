@@ -1,3 +1,15 @@
 nav.navbar.navbar-default {
-  margin-bottom: 0;
+  margin-bottom: 0; 
 }
+
+.navbar-inverse {
+	/*background-color: rgba(0,162,255,.3) !important;*/
+	height: 10%;
+	font-size: 24px;
+	font-color: white;
+	}
+
+.navbar-brand{
+		font-size: 24px;
+	
+	}

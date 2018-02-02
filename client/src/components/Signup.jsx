@@ -5,7 +5,7 @@ import Jumbotron  from "./Jumbotron";
 import { Row, Container } from "./Grid";
 import { Input, FormBtn } from "./Form";
 
-const SignUpForm = ({
+const Signup = ({
   onSubmit,
   onChange,
   errors,
@@ -54,11 +54,11 @@ const SignUpForm = ({
   </Container>
 );
 
-SignUpForm.propTypes = {
+Signup.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired
 };
 
-export default SignUpForm;
+export default Signup;

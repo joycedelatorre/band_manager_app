@@ -1,14 +1,31 @@
 import axios from "axios";
+import Twitter from "twitter";
+  
+
+const client = new Twitter({
+  consumer_key:'Ay0w8bJBkdWgTjy7mtXvbPzT8',
+  consumer_secret:'mKegADFO1DxM1Fsalw4NQOBZZhWJelPLLrYdLQMczZTTNSYyjy',
+  access_token_key:'940763629342941185-4RbW7RG3y8J6PslQBu2n4OnzpuqYOnm',
+  access_token_secret:'Ka7XzeIXgblWld1B9Kmqp7LZLrokqeBzp7uj7ci7J8r4b'
+    });
+
+
 
 export default {
 
+  getChart:function(name){
+    return axios.get("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + name + "&api_key=257b3ccab678d3242a9df1d72c677454&format=json");
+  },
+  getBand: function(name){
+    return axios.get("/api/spotify/band/" + name, {withCredentials:true});
+  },
   // bands routes
   getBands: function() {
     return axios.get("/api/bands");
   },
-  getBand: function(id) {
-    return axios.get("/api/bands/" + id);
-  },
+  // getBand: function(id) {
+  //   return axios.get("/api/bands/" + id);
+  // },
   deleteBand: function(id) {
     return axios.delete("/api/bands/" + id);
   },

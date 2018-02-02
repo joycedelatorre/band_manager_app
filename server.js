@@ -8,7 +8,8 @@ const Spotify = require('node-spotify-api');
 
 // connect to the database and load models
 const mongooseConfig = require('./config/mongoose.json');
-require('./models/mongoose').connect(mongooseConfig.dbUri);
+require('./models/mongoose').connect(process.env.MONGODB_URI || 
+	"mongodb://localhost/bands");
 
 const app = express();
 

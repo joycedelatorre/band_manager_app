@@ -96,7 +96,8 @@ class App extends Component {
                 <Navbar>
                   {[
                     {path: "/dashboard", name: "Dashboard"},
-                    {path: "/test", name: "Test"},
+                    // {path: "/test", name: "Test"},
+                    {path:"/gigs", name:"Gigs"},
                     {path:"/helpwanted", name:"Help Wanted"},
                     {path: "/logout", name: "Log out"}
                   ]}

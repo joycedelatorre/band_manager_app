@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": "http://localhost:53228/",
   "dependencies": {
     "axios": "^0.17.1",
     "concurrently": "^3.5.1",

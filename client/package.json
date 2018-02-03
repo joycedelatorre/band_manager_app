@@ -3,11 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000/",
-  "devDependencies": {
-    "install": "^0.10.4",
-    "nodemon": "^1.14.12",
-    "react-scripts": "0.9.5"
-  },
   "dependencies": {
     "axios": "^0.17.1",
     "concurrently": "^3.5.1",

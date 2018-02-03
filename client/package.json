@@ -2,7 +2,10 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:53228/",
+  "proxy": "http://localhost:5000/",
+  "devDependencies":{
+    "react-scripts":"0.9.5"
+  },
   "dependencies": {
     "axios": "^0.17.1",
     "concurrently": "^3.5.1",

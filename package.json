@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Twcapra/band_manager_app#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",

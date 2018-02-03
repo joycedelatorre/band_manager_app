@@ -1,5 +1,4 @@
 {
-	"dbUri":process.env.PORT || 3001,
-  // "dbUri": "mongodb://localhost/bandman",
+  "dbUri": "mongodb://localhost/bandman",
   "jwtSecret": "a secret phrase!!"
 }

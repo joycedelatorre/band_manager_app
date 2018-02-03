@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000/",
-  "devDependencies":{
-    "react-scripts":"0.9.5"
+  "devDependencies": {
+    "install": "^0.10.4",
+    "nodemon": "^1.14.12",
+    "react-scripts": "0.9.5"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -18,7 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject" ,
+    "eject": "react-scripts eject",
     "heroku-psotbuild": "cd client/ && npm install && npm install --only=dev --noshrinkwrap && npm run build"
   }
 }

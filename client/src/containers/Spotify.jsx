@@ -19,6 +19,7 @@ class Spotify extends Component {
 			).catch (err=> console.log(err));
 	}
 
+// 
 	render(){
 		if(this.state.requestFailed)return <p>Failed!</p>
 		if(!this.state.spotifyData)return <p>Loading...</p>	

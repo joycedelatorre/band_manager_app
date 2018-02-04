@@ -1,6 +1,14 @@
 import axios from "axios";
 
 export default {
+
+  getTwitter:function(name){
+    return axios.get("/api/twitter/band/" + name, {withCredentials:true});
+  },
+
+  getChart:function(name){
+    return axios.get("/api/listener/band/" + name, {withCredentials:true});
+  },
   getBand: function(name){
     return axios.get("/api/spotify/band/" + name, {withCredentials:true});
   },

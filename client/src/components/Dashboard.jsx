@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Wrapper from './Wrapper';
 import Spotify from "../containers/Spotify.jsx";
+import Listener from "../containers/Listener.jsx";
+import Twitter from "../containers/Twitter.jsx";
+
 
 const Dashboard = ({ secretData, user }) => (
   <Wrapper>
@@ -9,6 +12,8 @@ const Dashboard = ({ secretData, user }) => (
     <h3>You should get access to this page only after authentication.</h3>
   	{secretData && <div style={{ fontSize: '16px', color: 'green' }}>Welcome <strong>{user.username}</strong>!<br />{secretData}</div>}
   	<Spotify username="imagine dragons"></Spotify>
+  	<Listener username="imagine dragons"></Listener>
+  	<Twitter username="imagine dragons"></Twitter>
   </Wrapper>
 );
 

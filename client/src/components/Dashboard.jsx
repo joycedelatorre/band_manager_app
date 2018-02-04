@@ -11,8 +11,8 @@ const Dashboard = ({ secretData, user }) => (
     <h1>Dashboard</h1>
     <h3>You should get access to this page only after authentication.</h3>
   	{secretData && <div style={{ fontSize: '16px', color: 'green' }}>Welcome <strong>{user.username}</strong>!<br />{secretData}</div>}
+  	 <Listener username="imagine dragons"></Listener>
   	<Spotify username="imagine dragons"></Spotify>
-  	<Listener username="imagine dragons"></Listener>
   	<Twitter username="imagine dragons"></Twitter>
   </Wrapper>
 );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Anime from 'react-anime';
 import API from "../utils/API";
 
 class Listener extends Component {
@@ -26,8 +27,14 @@ class Listener extends Component {
 		if(!this.state.chartData)return <p>Loading...</p>	
 		return(
 			<div>
+				<Anime 	easing='easeInOutExpo'
+						opacity={[0, 1]} 
+						translateY={'.3em'} 
+						delay={(e, i) => i * 800}>
 				<h2>Listeners : {this.state.chartData.listeners}</h2>
 				<h2>Playcount : {this.state.chartData.playcount}</h2>
+
+				</Anime>
 			</div>
 		)
 	}

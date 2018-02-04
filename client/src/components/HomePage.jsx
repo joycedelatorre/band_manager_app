@@ -11,7 +11,9 @@ class HomePage extends React.Component {
 
   render() {
     return (
+  
       <Wrapper>
+
         <h1>Band Manager</h1>
         <h3>This is the home page.</h3>
           {Auth.isUserAuthenticated() ? (

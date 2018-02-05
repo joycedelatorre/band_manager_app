@@ -7,13 +7,15 @@ const axios = require("axios");
 //------------<Joyce start>--------------------
 const path = require("path");
 const Spotify = require('node-spotify-api');
+const axios = require('axios');
 //-------------<Joyce end>--------------------
 const Twitter = require('twitter');
 
 
 // connect to the database and load models
 const mongooseConfig = require('./config/mongoose.json');
-require('./models/mongoose').connect(mongooseConfig.dbUri);
+require('./models/mongoose').connect(process.env.MONGODB_URI || 
+	"mongodb://localhost/bandman");
 
 const app = express();
 
@@ -69,6 +71,21 @@ app.get("/api/spotify/band/:name",function(req, res){
 	});
 	// res.send(spotifyThisBand(name));
 });
+
+
+app.get("/api/reverbnation/:pnum", function(req, res) {
+	var pnum = req.params.pnum;
+	console.log(pnum);
+	console.log("hector");
+	var url = "https://www.reverbnation.com/api/campaign/search";
+	axios.post(url,{"tier":"1","page":pnum,"per_page":10,"status":["Running","Offer"],"open_for_submissions":true,"online":true,"extra_fields":"user_submissions,crowd_review_opp,can_submit"
+		}).then(function(response){
+			console.log("hello world");
+			console.log(response.data);
+			res.json(response.data);
+		});
+});
+
 //---------------------------<Joyce end>---------------------------
 app.get("/api/listener/band/:name", function(req, res){
 	console.log("-->" + req.params.name);

@@ -11,10 +11,14 @@ const Dashboard = ({ secretData, user }) => (
     <h1>Dashboard</h1>
     <h3>You should get access to this page only after authentication.</h3>
   	{secretData && <div style={{ fontSize: '16px', color: 'green' }}>Welcome <strong>{user.username}</strong>!<br />{secretData}</div>}
-  	 <Listener username="imagine dragons"></Listener>
-    {/* {user && <Spotify username={`${user.username}`}></Spotify>} */}
-    {user.username && <Spotify username={user.username} />}
-  	<Twitter username="imagine dragons"></Twitter>
+  <div className="row">
+    <div className="col-md-8">
+      {user.username && <Spotify username={user.username} />}
+    </div>
+    <div className="col-md-3">
+  	   {user.username && <Listener username={user.username} />}
+    </div>
+  </div>
   </Wrapper>
 );
 

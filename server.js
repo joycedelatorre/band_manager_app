@@ -105,21 +105,19 @@ app.get("/api/twitter/band/:name", function(req,res){
   		access_token_secret:'Ka7XzeIXgblWld1B9Kmqp7LZLrokqeBzp7uj7ci7J8r4b'
 	});
 	var band = req.params.name;
+	var tweetArr = [];
 
-	// 	client.stream('statuses/filter', {track: band},  function(stream) {
-	//   	stream.on('data', function(tweet) {
-	//     	console.log(tweet.text);
-	//     	res.json(tweet);
-	//  	 });
+	client.stream('statuses/filter', {track: band}, function(stream) {
+  stream.on('data', function(event) {
+    console.log(event && event.text);
+  });
+ 
+  stream.on('error', function(error) {
+    throw error;
+  });
+});	
 
-	//   	stream.on('error', function(error) {
-	//     	console.log(error);
-	//   	});
-	// });
-
-	client.get('search/tweets', {q: band}, function(error, tweets, response) {
-   console.log(tweets.text);
-});
+	
 });
 
 

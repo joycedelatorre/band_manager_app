@@ -31,8 +31,8 @@ class Listener extends Component {
 						opacity={[0, 1]} 
 						translateY={'.3em'} 
 						delay={(e, i) => i * 800}>
-				<h2>Listeners : {this.state.chartData.listeners}</h2>
-				<h2>Playcount : {this.state.chartData.playcount}</h2>
+				<h3>Listeners : {this.state.chartData.listeners}</h3>
+				<h3>Playcount : {this.state.chartData.playcount}</h3>
 
 				</Anime>
 			</div>

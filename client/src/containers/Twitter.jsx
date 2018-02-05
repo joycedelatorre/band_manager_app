@@ -5,7 +5,8 @@ class Twitter extends Component {
 	constructor(props){
 		super(props)
 		this.state ={
-			requestFailed: false
+			requestFailed: false,
+			tweeterData: ""
 		};
 	}
 	componentDidMount(){
@@ -15,7 +16,7 @@ class Twitter extends Component {
 	loadBand =(band) =>{
 		API.getTwitter(band)
 			.then(res =>
-				this.setState({tweeterData: res.tweet})
+				this.setState({tweeterData: res.tweet.text})
 			).catch (err=> console.log(err));
 	}
 
@@ -26,7 +27,7 @@ class Twitter extends Component {
 		if(!this.state.tweeterData)return <p>Loading...</p>	
 		return(
 			<div>
-				<h1>Tweets:{this.state.tweetertData.text}</h1>
+				<h1>Tweets:{this.state.tweetertData}</h1>
 			</div>
 		)
 	}

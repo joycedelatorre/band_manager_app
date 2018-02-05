@@ -29,18 +29,22 @@ class Spotify extends Component {
 		if(this.state.requestFailed)return <p>Failed!</p>
 		if(!this.state.spotifyData)return <p>Loading...</p>	
 		return(
-			<div>
+			<div className="row">
 				<Anime 	easing='easeInOutExpo'
 						opacity={[0, 1]} 
 						translateY={'.3em'} 
 						delay={(e, i) => i * 800}>
 
-				<img style={{ width: '300px'}}src={this.state.spotifyData.artists.items[0].images[0].url}/>
-				<h1>{this.state.spotifyData.artists.items[0].name}</h1>
-				<h3>Genre: {this.state.spotifyData.artists.items[0].genres[0]}</h3>
-				<h3>Popularity: {this.state.spotifyData.artists.items[0].popularity}</h3>
-
-				<h3>Followers: {this.state.spotifyData.artists.items[0].followers.total}</h3>
+				<div className="col-md-5">
+					<img style={{ width: '75%'}}src={this.state.spotifyData.artists.items[0].images[0].url}/>
+				</div>
+				<div className="col-md-4">
+					<h3>{this.state.spotifyData.artists.items[0].name}</h3>
+					<h3>Genre: {this.state.spotifyData.artists.items[0].genres[0]}</h3>
+					<h3>Popularity: {this.state.spotifyData.artists.items[0].popularity}</h3>
+					<h3>Followers: {this.state.spotifyData.artists.items[0].followers.total}</h3>
+				</div>
+				
 				</Anime>
 			</div>
 		)

@@ -1,8 +1,8 @@
 body {
-      background-image:url(""../image/download.jpeg"");
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100vh;
+      /*background-image: url(""./image/image.jpg"");*/
+       background-attachment: fixed !important;
+      background-repeat: no-repeat;
+    background-size: 100%; 
+    /*background-position: right top;*/
+    background-attachment: fixed;
     }

@@ -1,0 +1,13 @@
+.footer {
+  background: #FFFFFF;
+  position: fixed;
+}
+
+.footer span {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  background: #9E6060;
+}

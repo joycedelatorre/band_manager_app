@@ -1,0 +1,12 @@
+.home_title{
+	font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+	font-size: 50px;
+	border-bottom: 3px solid #e93233;
+	transition:all 1.5s ease;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	margin-top: 5%;
+}
+
+

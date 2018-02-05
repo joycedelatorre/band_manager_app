@@ -13,10 +13,10 @@ const Dashboard = ({ secretData, user }) => (
   	{secretData && <div style={{ fontSize: '16px', color: 'green' }}>Welcome <strong>{user.username}</strong>!<br />{secretData}</div>}
   <div className="row">
     <div className="col-md-8">
-      <Spotify username="imagine dragons"></Spotify>
+      {user.username && <Spotify username={user.username} />}
     </div>
     <div className="col-md-3">
-  	   <Listener username="imagine dragons"></Listener>
+  	   {user.username && <Listener username={user.username} />}
     </div>
   </div>
   </Wrapper>

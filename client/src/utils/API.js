@@ -16,14 +16,15 @@ export default {
   getBands: function() {
     return axios.get("/api/bands");
   },
-  // getBand: function(id) {
-  //   return axios.get("/api/bands/" + id);
-  // },
-  deleteBand: function(id) {
-    return axios.delete("/api/bands/" + id);
+
+  getHelpWanted: function(help){
+    return axios.post("/api/helpwanted", help);
   },
-  saveBand: function(bandData) {
-    return axios.post("/api/bands", bandData);
+  saveHelpWanted: function(help){
+    axios.post("/api/helpwanted", help)
+    .then(function(data){
+        console.log("saved Help Wanted ", data);
+    });
   },
 
   // users routes

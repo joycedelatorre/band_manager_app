@@ -17,6 +17,7 @@ import LogoutFunction from './containers/LogoutFunction.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 import HelpWantedPage from './containers/HelpWantedPage.jsx';
+import HelpWantedPostPage from './containers/HelpWantedPostPage.jsx';
 
 import TestPage from './containers/TestPage.jsx';
 
@@ -98,6 +99,7 @@ class App extends Component {
                     {path: "/dashboard", name: "Dashboard"},
                     {path: "/test", name: "Test"},
                     {path:"/helpwanted", name:"Help Wanted"},
+                    {path:"/helpwantedpost", name: "Find Artists"},
                     {path: "/logout", name: "Log out"}
                   ]}
                 </Navbar>
@@ -106,7 +108,8 @@ class App extends Component {
                 <Navbar>
                   {[
                     {path: "/login", name: "Log in"},
-                    {path: "/signup", name: "Sign up"}
+                    {path: "/signup", name: "Sign up"},
+                    {path: "/helpwantedpost", name: "Find Artists"}
                   ]}
                 </Navbar>
               )
@@ -114,14 +117,13 @@ class App extends Component {
 
             <section>
               <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
+              <PropsRoute exact path="/helpwantedpost" component={HelpWantedPostPage}/>
               <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
               <LoggedOutRoute path="/signup" component={SignUpPage} />
               <Route path="/logout" component={LogoutFunction} />
 
               <PrivateRoute path="/dashboard" component={DashboardPage} />
               <PrivateRoute path="/test" component={TestPage} />
-              <PrivateRoute path="/helpwanted" component={HelpWantedPage}/>
-
               {/*remember to use react-router-dom <Switch> . . . </Switch> to navigate exclusively to another Class*/}
             </section>
 

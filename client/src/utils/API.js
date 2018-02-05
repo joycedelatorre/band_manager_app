@@ -1,8 +1,17 @@
 import axios from "axios";
 
 export default {
+
   getGigs: function(pnum){
     return axios.get("/api/reverbnation/"+ pnum, {withCredentials:true});
+    
+  getTwitter:function(name){
+    return axios.get("/api/twitter/band/" + name, {withCredentials:true});
+  },
+
+  getChart:function(name){
+    return axios.get("/api/listener/band/" + name, {withCredentials:true});
+
   },
   getBand: function(name){
     return axios.get("/api/spotify/band/" + name, {withCredentials:true});
@@ -11,14 +20,15 @@ export default {
   getBands: function() {
     return axios.get("/api/bands");
   },
-  // getBand: function(id) {
-  //   return axios.get("/api/bands/" + id);
-  // },
-  deleteBand: function(id) {
-    return axios.delete("/api/bands/" + id);
+
+  getHelpWanted: function(help){
+    return axios.post("/api/helpwanted", help);
   },
-  saveBand: function(bandData) {
-    return axios.post("/api/bands", bandData);
+  saveHelpWanted: function(help){
+    axios.post("/api/helpwanted", help)
+    .then(function(data){
+        console.log("saved Help Wanted ", data);
+    });
   },
 
   // users routes

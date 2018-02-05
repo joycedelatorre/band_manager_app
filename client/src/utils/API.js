@@ -4,7 +4,7 @@ export default {
 
   getGigs: function(pnum){
     return axios.get("/api/reverbnation/"+ pnum, {withCredentials:true});
-    
+  },
   getTwitter:function(name){
     return axios.get("/api/twitter/band/" + name, {withCredentials:true});
   },

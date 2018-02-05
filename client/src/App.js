@@ -117,7 +117,7 @@ class App extends Component {
 
             <section>
               <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
-              <PropsRoute exact path="/helpwanted" component={HelpWantedPage}/>
+              {/* <PropsRoute exact path="/helpwanted" component={HelpWantedPage}/>*/}
               <PropsRoute exact path="/helpwantedpost" component={HelpWantedPostPage}/>
               <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
               <LoggedOutRoute path="/signup" component={SignUpPage} />

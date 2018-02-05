@@ -24,6 +24,7 @@ export default {
   getHelpWanted: function(help){
     return axios.post("/api/helpwanted", help);
   },
+  
   saveHelpWanted: function(help){
     axios.post("/api/helpwanted", help)
     .then(function(data){

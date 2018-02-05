@@ -30,21 +30,6 @@ router.get('/test', (req, res) => {
 	);
 });
 
-// router.post('/helpwanted', (req, res)=> {
-// 	const dbHelpWanted = require('../models/helpwanted');
-// 	dbHelpWanted.create(req.body, function (err, data) {
-// 		if (err) return console.log(err);
-// 		// saved!
-// 		res.status(200).json({
-// 			response: "Posted!",
-// 			artist: req.body.artist + " - ok!",
-// 			description: req.body.description + " - ok!",
-// 			contact: req.body.contact + " - ok!",
-// 			location: req.body.location + " - ok!"
-// 		});
-// 	});
-// });
-
 router.post('/helpwanted', (req, res)=> {
 	const band = new Band({
 		artist: req.body.artist,
@@ -53,7 +38,6 @@ router.post('/helpwanted', (req, res)=> {
 		location: req.body.location
 	});
 	band.save().then(result =>{
-		console.log(result);
 		res.status(200).json({
 			response: "Posted!",
 			artist: req.body.artist + " - ok!",

@@ -26,29 +26,17 @@ class  HelpWantedPostPage extends React.Component {
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
         let results = [];
-        console.log(xhr.response);
         for (let i = 0; i < xhr.response.length; i++) {
           results.push(xhr.response[i]);
         }
-        console.log(results);
         this.setState({
           results: results
         });
       } else {
-        console.log("not 200");
       }
     });
     xhr.send();
   }
-
-  // render() {
-  //   console.log("render");
-  //   return (
-  //     this.state.results
-  //       ? <HelpWantedPost>{this.state.results}</HelpWantedPost>
-  //       : <div>Nothing to show</div>
-  //   );
-  // }
 
   render() {
     return (

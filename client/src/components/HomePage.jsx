@@ -1,6 +1,8 @@
 import React from 'react';
 import Auth from '../utils/Auth';
 import Wrapper from './Wrapper';
+import Title from './Title';
+
 
 class HomePage extends React.Component {
 
@@ -13,7 +15,7 @@ class HomePage extends React.Component {
     return (
   
       <Wrapper>
-
+        <Title></Title>
         <h1>Band Manager</h1>
         <h3>This is the home page.</h3>
           {Auth.isUserAuthenticated() ? (

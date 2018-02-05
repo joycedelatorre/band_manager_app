@@ -31,7 +31,9 @@ const sectionStyle = {
   backgroundRepeat: "no-repeat center center fixed",
   backgroundAttachment: "fixed",
   backgroundSize: "cover",
-  position: "absolute"
+  width: "100%",
+  position: "absolute",
+  overflow: 'scroll'
 }
 
 const PrivateRoute = ({ component: Component, ...rest }) => (

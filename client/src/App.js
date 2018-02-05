@@ -111,7 +111,7 @@ class App extends Component {
                   {[
                     {path: "/login", name: "Log in"},
                     {path: "/signup", name: "Sign up"},
-                    {path: "/helpwantedpost", name: "Find Artists"}
+                    // {path: "/helpwantedpost", name: "Find Artists"}
                   ]}
                 </Navbar>
               )
@@ -119,8 +119,9 @@ class App extends Component {
 
             <section>
               <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
-              {/* <PropsRoute exact path="/helpwanted" component={HelpWantedPage}/>*/}
+              <PropsRoute exact path="/helpwanted" component={HelpWantedPage}/>
               <PropsRoute exact path="/helpwantedpost" component={HelpWantedPostPage}/>
+              {/* <LoggedOutRoute exact path="/helpwantedpost" component={HelpWantedPostPage}/> */}
               <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
               <LoggedOutRoute path="/signup" component={SignUpPage} />
               <Route path="/logout" component={LogoutFunction} />
@@ -128,7 +129,7 @@ class App extends Component {
               <PrivateRoute path="/dashboard" component={DashboardPage} />
 
               <PrivateRoute path="/Gigs" component={GigsPage} />
-              <PrivateRoute path="/helpwanted" component={HelpWantedPage}/>
+              {/* <PrivateRoute path="/helpwanted" component={HelpWantedPage}/> */}
 
 
               {/*remember to use react-router-dom <Switch> . . . </Switch> to navigate exclusively to another Class*/}

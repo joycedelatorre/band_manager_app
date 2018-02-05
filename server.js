@@ -20,11 +20,7 @@ require('./models/mongoose').connect(process.env.MONGODB_URI ||
 const app = express();
 
 // Tell the app to look for static files in these directories
-<<<<<<< HEAD
-// app.use(express.static('./server/static/'));
-=======
 app.use(express.static('./client/build/'));
->>>>>>> 64bc097dfc15b27ab52daee761d9b1aec4ad7679
 // app.use(express.static('./client/dist/'));
 
 // Configure body parser for AJAX requests

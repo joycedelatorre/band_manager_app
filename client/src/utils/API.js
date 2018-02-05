@@ -1,6 +1,9 @@
 import axios from "axios";
 
 export default {
+  getGigs: function(pnum){
+    return axios.get("/api/reverbnation/"+ pnum, {withCredentials:true});
+  },
   getBand: function(name){
     return axios.get("/api/spotify/band/" + name, {withCredentials:true});
   },

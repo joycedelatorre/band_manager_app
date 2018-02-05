@@ -4,6 +4,7 @@ const passport = require("passport");
 //------------<Joyce start>--------------------
 const path = require("path");
 const Spotify = require('node-spotify-api');
+const axios = require('axios');
 //-------------<Joyce end>--------------------
 
 // connect to the database and load models
@@ -64,6 +65,21 @@ app.get("/api/spotify/band/:name",function(req, res){
 	});
 	// res.send(spotifyThisBand(name));
 });
+
+
+app.get("/api/reverbnation/:pnum", function(req, res) {
+	var pnum = req.params.pnum;
+	console.log(pnum);
+	console.log("hector");
+	var url = "https://www.reverbnation.com/api/campaign/search";
+	axios.post(url,{"tier":"1","page":pnum,"per_page":10,"status":["Running","Offer"],"open_for_submissions":true,"online":true,"extra_fields":"user_submissions,crowd_review_opp,can_submit"
+		}).then(function(response){
+			console.log("hello world");
+			console.log(response.data);
+			res.json(response.data);
+		});
+});
+
 //---------------------------<Joyce end>---------------------------
 
 

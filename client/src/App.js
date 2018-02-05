@@ -18,7 +18,7 @@ import SignUpPage from './containers/SignUpPage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 import HelpWantedPage from './containers/HelpWantedPage.jsx';
 
-import TestPage from './containers/TestPage.jsx';
+import GigsPage from './containers/GigsPage.jsx';
 
 import Auth from './utils/Auth';
 
@@ -96,8 +96,7 @@ class App extends Component {
                 <Navbar>
                   {[
                     {path: "/dashboard", name: "Dashboard"},
-                    // {path: "/test", name: "Test"},
-                    {path:"/gigs", name:"Gigs"},
+                    {path:"/Gigs", name:"Gigs"},
                     {path:"/helpwanted", name:"Help Wanted"},
                     {path: "/logout", name: "Log out"}
                   ]}
@@ -120,7 +119,7 @@ class App extends Component {
               <Route path="/logout" component={LogoutFunction} />
 
               <PrivateRoute path="/dashboard" component={DashboardPage} />
-              <PrivateRoute path="/test" component={TestPage} />
+              <PrivateRoute path="/Gigs" component={GigsPage} />
               <PrivateRoute path="/helpwanted" component={HelpWantedPage}/>
 
               {/*remember to use react-router-dom <Switch> . . . </Switch> to navigate exclusively to another Class*/}

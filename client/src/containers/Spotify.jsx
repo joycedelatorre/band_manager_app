@@ -11,7 +11,10 @@ class Spotify extends Component {
 		};
 	}
 	componentDidMount(){
-		 	this.loadBand(this.props.username);
+		console.log("Spotify_componentDidMount", this.props.username);
+	// componentWillReceiveProps() {
+		// console.log("Spotify_componentWillReceiveProps", this.props.username);
+		this.loadBand(this.props.username);
 	}
 
 	loadBand =(band) =>{

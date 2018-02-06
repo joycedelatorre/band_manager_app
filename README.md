@@ -11,9 +11,10 @@ Tech Used: </br>
 - Libraries: React, BootStrap, AnimeJS, PassPort
 - MVC File Structure is used here
 
-Link to the Band Manager App
+Link to the Band Manager App </br>
 Link: https://warm-inlet-92357.herokuapp.com/
-</br>
+</br></br>
 Link to Slide Show
+</br>
 Link: https://docs.google.com/presentation/d/1yNuOvzjC0PXpoEcA7RBJb-J2UFLJSapGHkDkmVU7V1A/edit?usp=sharing
 

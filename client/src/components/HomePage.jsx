@@ -2,7 +2,7 @@ import React from 'react';
 import Auth from '../utils/Auth';
 import Wrapper from './Wrapper';
 import Title from './Title';
-import H_Title from "../containers/H_Title.jsx";
+// import H_Title from "../containers/H_Title.jsx";
 
 
 

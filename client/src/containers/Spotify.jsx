@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Anime from 'react-anime';
 import API from "../utils/API";
-import Wrapper from '../components/Wrapper';
+// import Wrapper from '../components/Wrapper';
 
 class Spotify extends Component {
 	constructor(props){
@@ -11,7 +11,7 @@ class Spotify extends Component {
 		};
 	}
 	componentDidMount(){
-		console.log("Spotify_componentDidMount", this.props.username);
+	// console.log("Spotify_componentDidMount", this.props.username);
 	// componentWillReceiveProps() {
 		// console.log("Spotify_componentWillReceiveProps", this.props.username);
 		this.loadBand(this.props.username);
@@ -36,7 +36,7 @@ class Spotify extends Component {
 						delay={(e, i) => i * 800}>
 
 				<div className="col-md-5">
-					<img style={{ width: '75%'}}src={this.state.spotifyData.artists.items[0].images[0].url}/>
+					<img style={{width: '75%'}} alt='' src={this.state.spotifyData.artists.items[0].images[0].url}/>
 				</div>
 				<div className="col-md-4">
 					<h3>{this.state.spotifyData.artists.items[0].name}</h3>

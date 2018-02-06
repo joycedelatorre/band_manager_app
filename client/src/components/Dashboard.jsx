@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Wrapper from './Wrapper';
 import Spotify from "../containers/Spotify.jsx";
 import Listener from "../containers/Listener.jsx";
-import Twitter from "../containers/Twitter.jsx";
+// import Twitter from "../containers/Twitter.jsx";
 
 
 const Dashboard = ({ secretData, user }) => (

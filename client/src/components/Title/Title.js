@@ -1,5 +1,5 @@
 import React from "react";
-import Anime from 'react-anime';
+// import Anime from 'react-anime';
 import "./Title.css";
 
 

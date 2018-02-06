@@ -13,4 +13,7 @@ Tech Used: </br>
 
 Link to the Band Manager App
 Link: https://warm-inlet-92357.herokuapp.com/
+</br>
+Link to Slide Show
+Link: https://docs.google.com/presentation/d/1yNuOvzjC0PXpoEcA7RBJb-J2UFLJSapGHkDkmVU7V1A/edit?usp=sharing
 

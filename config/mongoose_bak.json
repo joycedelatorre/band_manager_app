@@ -1,0 +1,4 @@
+{
+  "dbUri": "mongodb://heroku_xv87h5vf:cn30c2eeidjrnq7mq9fm6tnh3b@ds125048.mlab.com:25048/heroku_xv87h5vf",
+  "jwtSecret": "a secret phrase!!"
+}

@@ -14,9 +14,11 @@ const Twitter = require('twitter');
 
 // connect to the database and load models
 const mongooseConfig = require('./config/mongoose.json');
+// require('./models/mongoose').connect(process.env.MONGODB_URI || 
+// 	"mongodb://heroku_xv87h5vf:cn30c2eeidjrnq7mq9fm6tnh3b@ds125048.mlab.com:25048/heroku_xv87h5vf");
 require('./models/mongoose').connect(process.env.MONGODB_URI || 
-	"mongodb://heroku_xv87h5vf:cn30c2eeidjrnq7mq9fm6tnh3b@ds125048.mlab.com:25048/heroku_xv87h5vf");
-
+	"mongodb://localhost/bandman");
+	
 const app = express();
 const db = require("./models");
 // Tell the app to look for static files in these directories

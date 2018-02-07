@@ -1,4 +1,4 @@
 {
-  "dbUri": "mongodb://heroku_cq3p6m34:heroku_cq3p6m34@ds229468.mlab.com:29468/heroku_cq3p6m34",
+  "dbUri": "mongodb://heroku_cq3p6m34:2Fxpw0B98SUy7OTf1KUaRPEvcq8SCUqJ@ds229468.mlab.com:29468/heroku_cq3p6m34",
   "jwtSecret": "a secret phrase!!"
 }

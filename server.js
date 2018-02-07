@@ -16,7 +16,7 @@ const mongooseConfig = require('./config/mongoose.json');
 // require('./models/mongoose').connect(process.env.MONGODB_URI || 
 // 	"mongodb://heroku_xv87h5vf:cn30c2eeidjrnq7mq9fm6tnh3b@ds125048.mlab.com:25048/heroku_xv87h5vf");
 require('./models/mongoose').connect(process.env.MONGODB_URI || 
-	"mongodb://heroku_cq3p6m34:heroku_cq3p6m34@ds229468.mlab.com:29468/heroku_cq3p6m34");
+	"mongodb://heroku_cq3p6m34:2Fxpw0B98SUy7OTf1KUaRPEvcq8SCUqJ@ds229468.mlab.com:29468/heroku_cq3p6m34");
 	
 const app = express();
 const db = require("./models");

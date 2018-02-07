@@ -18,7 +18,7 @@ require('./models/mongoose').connect(process.env.MONGODB_URI ||
 	"mongodb://heroku_xv87h5vf:cn30c2eeidjrnq7mq9fm6tnh3b@ds125048.mlab.com:25048/heroku_xv87h5vf");
 
 const app = express();
-
+const db = require("./models");
 // Tell the app to look for static files in these directories
 app.use(express.static('./client/build/'));
 // app.use(express.static('./client/dist/'));
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Pass the passport middleware
 app.use(passport.initialize());
-
+var jsonParser = bodyParser.json();
 // load passport strategies
 const localSignupStrategy = require('./passport/local-signup');
 const localLoginStrategy = require('./passport/local-login');
@@ -76,7 +76,6 @@ app.get("/api/spotify/band/:name",function(req, res){
 app.get("/api/reverbnation/:pnum", function(req, res) {
 	var pnum = req.params.pnum;
 	console.log(pnum);
-	console.log("hector");
 	var url = "https://www.reverbnation.com/api/campaign/search";
 	axios.post(url,{"tier":"1","page":pnum,"per_page":10,"status":["Running","Offer"],"open_for_submissions":true,"online":true,"extra_fields":"user_submissions,crowd_review_opp,can_submit"
 		}).then(function(response){
@@ -84,6 +83,60 @@ app.get("/api/reverbnation/:pnum", function(req, res) {
 			console.log(response.data);
 			res.json(response.data);
 		});
+});
+
+
+//------------------ MONGODB ---------------------------
+
+app.post("/api/save/", jsonParser, function(req, res){
+  console.log("I'm trying to save server.js ln 79");
+  var uid = req.body.uid;
+  console.log(uid);
+  console.log(req.body);
+  db.Gig
+    .create(req.body)
+    // .then(function(dbGig) {
+    // 	console.log(dbGig)
+    // 	return db.User.findOneAndUpate(
+    // 		{_id:uid},
+    // 		{gig:dbGig._id},
+    // 		{new:true}
+    // 	);
+    // })
+    .then(function(dbUser){
+        console.log("Gig saved"); //CHECK node server
+    	res.json(dbUser);
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
+//---------------------- list gigs ------------------------------
+app.get("/api/listGigs/:id", function(req, res){
+	console.log(req.params.id);
+	db.Gig
+	.find({"uid":req.params.id})
+	.then(function(Gigs){
+		console.log(Gigs);
+		res.json(Gigs)
+	})
+	.catch(function(err){
+		res.json(err);
+	});
+
+});
+
+//------------------------------------------------------
+
+//-------------- delete gig -------------
+app.delete("/gig/:id", function(req, res){
+	db.Gig
+	.remove({"_id":req.params.id})
+	.then(function(dbUser){
+		res.json(dbUser)
+	})
 });
 
 //---------------------------<Joyce end>---------------------------

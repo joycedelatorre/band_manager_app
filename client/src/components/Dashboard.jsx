@@ -4,6 +4,7 @@ import Wrapper from './Wrapper';
 import Spotify from "../containers/Spotify.jsx";
 import Listener from "../containers/Listener.jsx";
 // import Twitter from "../containers/Twitter.jsx";
+import ListGig from "./listGigs.jsx";
 
 
 const Dashboard = ({ secretData, user }) => (
@@ -17,6 +18,9 @@ const Dashboard = ({ secretData, user }) => (
     </div>
     <div className="col-md-3">
   	   {user.username && <Listener username={user.username} />}
+    </div>
+    <div className="col-md-8">
+      {<ListGig/>}
     </div>
   </div>
   </Wrapper>

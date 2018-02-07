@@ -2,6 +2,17 @@ import axios from "axios";
 
 export default {
 
+  deleteGig: function(gigId){
+    return axios.delete("/gig/"+ gigId, {withCredentials:true});
+  },
+  listGigs: function(uid){
+    return axios.get("/api/listGigs/"+ uid, {withCredentials:true});
+  },
+
+  saveGig: function(data){
+    return axios.post("/api/save/", data, {withCredentials:true});
+  },
+
   getGigs: function(pnum){
     return axios.get("/api/reverbnation/"+ pnum, {withCredentials:true});
   },

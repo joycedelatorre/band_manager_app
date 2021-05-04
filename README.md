@@ -11,6 +11,7 @@ Tech Used: </br>
 - Libraries: React, BootStrap, AnimeJS, PassPort
 - MVC File Structure is used here
 
+
 Check me out [Band Manager App](https://intense-fjord-10661.herokuapp.com/)
 
 ![Band Dashboard](client/build/static/media/bands.png)

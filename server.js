@@ -141,40 +141,6 @@ app.delete("/gig/:id", function(req, res){
 });
 
 //---------------------------<Joyce end>---------------------------
-app.get("/api/listener/band/:name", function(req, res){
-	console.log("-->" + req.params.name);
-	axios.get("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + req.params.name + "&api_key=257b3ccab678d3242a9df1d72c677454&format=json").then(function(data){
-		console.log(data.data.artist.stats);
-		res.json(data.data.artist);
-	});
-});
-// -------------------------<Twitter>-------------------------------
-app.get("/api/twitter/band/:name", function(req,res){
-	console.log("------->" + req.params.name);
-
-	var client = new Twitter({
-  		consumer_key:'Ay0w8bJBkdWgTjy7mtXvbPzT8',
-  		consumer_secret:'mKegADFO1DxM1Fsalw4NQOBZZhWJelPLLrYdLQMczZTTNSYyjy',
-  		access_token_key:'940763629342941185-4RbW7RG3y8J6PslQBu2n4OnzpuqYOnm',
-  		access_token_secret:'Ka7XzeIXgblWld1B9Kmqp7LZLrokqeBzp7uj7ci7J8r4b'
-	});
-	var band = req.params.name;
-	var tweetArr = [];
-
-	client.stream('statuses/filter', {track: band}, function(stream) {
-  stream.on('data', function(event) {
-    console.log(event && event.text);
-  });
- 
-  stream.on('error', function(error) {
-    throw error;
-  });
-});	
-
-	
-});
-
-
 
 app.use('/api', authCheckMiddleware);
 
